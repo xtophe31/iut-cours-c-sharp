@@ -1,0 +1,57 @@
+﻿@using System.Globalization
+@using Cours.MVC.TP1.Models;
+
+@model StockViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    
+</head>
+    <body>
+        <nav>
+            @Html.ActionLink("Tous", "Index") / @Html.ActionLink("Livre", "Index", new {filtre="Livre"}) / @Html.ActionLink("Papeterie", "Index", new { filtre = "Papeterie" })
+        </nav>
+        
+        <hr/>
+
+        <div>
+            <table>
+                <thead>
+                    <tr style="text-align: center">
+                        <th style="width: 200px">désignation</th>
+                        <th style="width: 80px">nombre</th>
+                        <th style="width: 80px">prix unitaire</th>
+                        <th style="width: 80px">total</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr style="font-weight: bold">
+                        <td>@Model.Stock.Count / @Model.TotalArticles</td>
+                        <td></td>
+                        <td></td>
+                        <td>@Model.Stock.Valeur() €</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var produit in Model.Stock)
+                    {
+                        <tr>
+                            <td>@produit.Affiche()</td>
+                            <td style="text-align: right">@produit.Quantite</td>
+                            <td style="text-align: right">@string.Format("{0:C2}",produit.PrixUnitaireHt) </td>
+                            <td style="text-align: right">@string.Format("{0:C2}",produit.Quantite*produit.PrixUnitaireHt)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+         
+        </div>
+    </body>
+</html>
