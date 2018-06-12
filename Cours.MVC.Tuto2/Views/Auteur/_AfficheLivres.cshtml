@@ -1,0 +1,14 @@
+﻿@using Cours.MVC.Tuto2.Models.Data
+@model List<Livre>
+           
+<table>
+    <tbody>
+    @foreach (var livre in Model)
+    {
+        <tr>
+            <td>@livre.Nom;</td>
+        </tr>
+    }        
+    </tbody>
+</table>
+

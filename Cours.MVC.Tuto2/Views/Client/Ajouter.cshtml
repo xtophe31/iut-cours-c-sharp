@@ -1,0 +1,71 @@
+﻿@model Cours.MVC.Tuto2.Models.Data.Client
+
+@{
+    ViewBag.Title = "Client - Ajouter";
+}
+
+@section Head
+{
+
+@*<script type="text/javascript" src="~/Scripts/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>*@
+
+@*<script type="text/javascript">
+    jQuery.validator.unobtrusive.adapters.add
+    ("verifcontact", ["parametre1", "parametre2"], function (options) {
+        options.rules["verifcontact"] = options.params;
+        options.messages["verifcontact"] = options.message;
+    });
+
+    jQuery.validator.addMethod("verifcontact",
+    function (value, element, params) {
+        var tel = $("#" + params.parametre1).val();
+        var email = $("#" + params.parametre2).val();
+        return tel != '' || email != '';
+    });
+</script>*@
+
+}
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Ajouter un client</legend>
+
+        <div>
+            @Html.LabelFor(m => m.Nom)
+            @Html.TextBoxFor(m => m.Nom)
+            @*@Html.ValidationMessageFor(m => m.Nom)*@
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Prenom)
+            @Html.TextBoxFor(m => m.Prenom)
+            @*@Html.ValidationMessageFor(m => m.Prenom)*@
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+            @*@Html.ValidationMessageFor(m => m.Email)*@
+        </div>
+        
+        @*<div>
+            @Html.LabelFor(model => model.Telephone)
+            @Html.TextBoxFor(model => model.Telephone, new
+                                                       {
+                                                           data_val_verifcontact = "Vous devez saisir au moins un moyen de contacter la personne",
+                                                           data_val_verifcontact_parametre1 = "Telephone",
+                                                           data_val_verifcontact_parametre2 = "Email"
+                                                       })
+            @Html.ValidationMessageFor(model => model.Telephone)
+        </div>*@
+
+        <input type="submit" value="Ajouter" />
+    </fieldset>
+}
+
+<h2>Ajouter un client</h2>
+
+

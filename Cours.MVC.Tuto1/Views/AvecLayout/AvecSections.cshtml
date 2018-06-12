@@ -1,0 +1,20 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Avec une section";
+    Layout = "~/Views/Shared/_SectionLayout.cshtml";
+}
+
+<h2>Avec une section</h2>
+
+@section NavSection
+{
+    @Html.ActionLink("Retour au sommaire","Index","Home");
+}
+
+@section FooterSection
+{
+    @DateTime.Now.ToShortDateString()
+}
+
+

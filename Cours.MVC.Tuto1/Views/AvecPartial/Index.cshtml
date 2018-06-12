@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.TexteDansLePrincipal = "Ceci est un texte provenant du principal";
+}
+<h2>Avec une vue partielle</h2>
+
+<p>Ici c'est la vue principale</p>
+
+@Html.Partial("_PartialSimple")
+
+@{
+    Html.RenderAction("AffichePartial");
+}
+

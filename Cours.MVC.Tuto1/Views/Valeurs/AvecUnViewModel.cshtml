@@ -1,0 +1,26 @@
+﻿@model Cours.MVC.Tuto1.Models.ValeursViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Avec un modèle</title>
+    </head>
+    <body>
+        <h1>Avec un View Model <small>C'est mieux</small></h1>
+        
+        <h2>@Model.Prenom @Model.Nom</h2>
+        
+        <ul>
+        @foreach (string livre in Model.Livres.OrderBy(l => l))
+        {
+            <li>@livre</li>
+        }
+        </ul>
+
+    </body>
+</html>

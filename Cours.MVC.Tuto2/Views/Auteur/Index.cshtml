@@ -1,0 +1,33 @@
+﻿@model List<Cours.MVC.Tuto2.Models.Data.Auteur>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Liste des auteurs et de leur livres</title>
+</head>
+<body>
+    <div style="width: 30%; float: left" id="listeAuteurs">
+        <table>
+            @foreach (var auteur in Model)
+            {
+                <tr>
+                    <td>@auteur.Id</td>
+                    <td>@auteur.Nom</td>
+                    <td>@auteur.Prenom</td>
+                </tr>
+            }
+        </table>
+        
+        @Html.ActionLink("Ajouter","Ajouter")
+    </div>
+
+    <div style="width: 30%; float: right" id="listeLivres">
+    </div>
+
+</body>
+</html>

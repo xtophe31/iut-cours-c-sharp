@@ -1,0 +1,49 @@
+﻿@model Cours.MVC.Tuto2.Models.Data.Auteur
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ajouter</title>
+    
+    <script type="text/javascript" src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    
+    <link type="text/css" href="~/Content/Site.css" rel="stylesheet"/>
+
+
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <fieldset>
+                <legend>Ajouter un auteur</legend>
+
+                <div>
+                    @Html.LabelFor(m => m.Nom)
+                    @Html.TextBoxFor(m => m.Nom)
+                    @Html.ValidationMessageFor(m => m.Nom)
+                </div>
+                
+
+                <div>
+                    @Html.LabelFor(m => m.Prenom)
+                    @Html.TextBoxFor(m => m.Prenom)
+                    @Html.ValidationMessageFor(m => m.Prenom)
+                </div>
+
+                <input type="submit" value="Ajouter"/>
+            </fieldset>
+        }
+    </div>
+    <div>
+        @ViewBag.MessageErreur
+    </div>
+</body>
+
+</html>
